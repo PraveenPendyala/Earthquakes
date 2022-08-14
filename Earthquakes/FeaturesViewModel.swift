@@ -9,11 +9,16 @@ import Foundation
 import Combine
 import UIKit
 
+protocol FeatureViewModelDelegate: NSObjectProtocol {
+    func reloadUI()
+    func loadFailed()
+}
+
 class FeatureViewModel: NSObject {
     
     private var apiService: APIService!
     private var collection: FeatureCollection!
-    var bindViewModelToController : (() -> ()) = {}
+    weak var delegate: FeatureViewModelDelegate?
     var dataSource : TableViewDataSource<EarthquakeTableViewCell,Feature>!
     private var publisher: AnyCancellable?
     
@@ -24,16 +29,17 @@ class FeatureViewModel: NSObject {
     }
     
     @objc func getEarthQuakeData() {
-        self.publisher = self.apiService.getEarthQuakeData(type: FeatureCollection.self).sink { completion in
+        self.publisher = self.apiService.getEarthQuakeData(type: FeatureCollection.self).sink {  [weak self] completion in
             if case .failure(let error) = completion {
                 print("Failed with error \(error)")
+                self?.delegate?.loadFailed()
             }
         } receiveValue: { [weak self] collection in
             self?.collection = collection
             self?.dataSource  = TableViewDataSource(items: collection.features, configureCell: { cell, earthquake in
                 cell.configure(earthquake)
             })
-            self?.bindViewModelToController()
+            self?.delegate?.reloadUI()
         }
     }
 }

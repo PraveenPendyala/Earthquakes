@@ -19,7 +19,7 @@ final class EarthquakesViewController: UIViewController {
     // MARK: -
     // MARK: Properties
     
-    private var viewModel: FeatureViewModel!
+    fileprivate var viewModel: FeatureViewModel!
     
     
     
@@ -28,15 +28,11 @@ final class EarthquakesViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.viewModel = FeatureViewModel()
         self.earthQuakesTableView.delegate = viewModel
+        self.viewModel.delegate            = self
         EarthquakeTableViewCell.register(with: earthQuakesTableView)
         self.earthQuakesTableView.refreshControl = UIRefreshControl()
         self.earthQuakesTableView.refreshControl?.beginRefreshing()
         self.earthQuakesTableView.refreshControl?.addTarget(self, action: #selector(refershData), for: .valueChanged)
-        self.viewModel.bindViewModelToController = {
-            self.earthQuakesTableView.dataSource = self.viewModel.dataSource
-            self.earthQuakesTableView.reloadData()
-            self.earthQuakesTableView.refreshControl?.endRefreshing()
-        }
     }
     
     @objc private func refershData() {
@@ -45,3 +41,14 @@ final class EarthquakesViewController: UIViewController {
     }
 }
 
+extension EarthquakesViewController: FeatureViewModelDelegate {
+    func reloadUI() {
+        self.earthQuakesTableView.dataSource = self.viewModel.dataSource
+        self.earthQuakesTableView.reloadData()
+        self.earthQuakesTableView.refreshControl?.endRefreshing()
+    }
+    
+    func loadFailed() {
+        self.earthQuakesTableView.refreshControl?.endRefreshing()
+    }
+}

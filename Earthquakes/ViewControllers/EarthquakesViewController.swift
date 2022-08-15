@@ -52,3 +52,9 @@ extension EarthquakesViewController: FeatureViewModelDelegate {
         self.earthQuakesTableView.refreshControl?.endRefreshing()
     }
 }
+
+extension EarthquakesViewController: StoryboardInitializable {
+    static func instantiateFromStoryboard() -> EarthquakesViewController {
+        return UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "EarthquakesViewController") as! EarthquakesViewController
+    }
+}

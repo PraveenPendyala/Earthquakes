@@ -12,10 +12,12 @@
 		AC1468F428A866D90064F6BC /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1468F328A866D90064F6BC /* UITableViewCell+Extension.swift */; };
 		AC1468F728A8677B0064F6BC /* EarthquakeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1468F628A8677B0064F6BC /* EarthquakeTableViewCell.swift */; };
 		AC1468F928A867CB0064F6BC /* EarthquakeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1468F828A867CB0064F6BC /* EarthquakeTableViewCell.xib */; };
+		AC1468FF28A9CEC10064F6BC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1468FE28A9CEC10064F6BC /* Coordinator.swift */; };
+		AC14690128A9CF090064F6BC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14690028A9CF090064F6BC /* AppCoordinator.swift */; };
+		AC14690328A9D0840064F6BC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14690228A9D0840064F6BC /* UIViewController+Extension.swift */; };
 		AC792FD928A4C6000027A05C /* FeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC792FD828A4C6000027A05C /* FeatureCollection.swift */; };
 		AC792FDC28A4C8E60027A05C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC792FDB28A4C8E60027A05C /* Date+Extension.swift */; };
 		ACF815E728A23FE6002AE858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815E628A23FE6002AE858 /* AppDelegate.swift */; };
-		ACF815E928A23FE6002AE858 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815E828A23FE6002AE858 /* SceneDelegate.swift */; };
 		ACF815EB28A23FE6002AE858 /* EarthquakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815EA28A23FE6002AE858 /* EarthquakesViewController.swift */; };
 		ACF815EE28A23FE6002AE858 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF815EC28A23FE6002AE858 /* Main.storyboard */; };
 		ACF815F028A23FE7002AE858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF815EF28A23FE7002AE858 /* Assets.xcassets */; };
@@ -29,11 +31,13 @@
 		AC1468F328A866D90064F6BC /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		AC1468F628A8677B0064F6BC /* EarthquakeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeTableViewCell.swift; sourceTree = "<group>"; };
 		AC1468F828A867CB0064F6BC /* EarthquakeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EarthquakeTableViewCell.xib; sourceTree = "<group>"; };
+		AC1468FE28A9CEC10064F6BC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		AC14690028A9CF090064F6BC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		AC14690228A9D0840064F6BC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AC792FD828A4C6000027A05C /* FeatureCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollection.swift; sourceTree = "<group>"; };
 		AC792FDB28A4C8E60027A05C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ACF815E328A23FE6002AE858 /* Earthquakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earthquakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF815E628A23FE6002AE858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACF815E828A23FE6002AE858 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ACF815EA28A23FE6002AE858 /* EarthquakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesViewController.swift; sourceTree = "<group>"; };
 		ACF815ED28A23FE6002AE858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACF815EF28A23FE7002AE858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +66,39 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		AC1468FA28A9CE6E0064F6BC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AC1468EF28A85FAC0064F6BC /* FeaturesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AC1468FB28A9CE780064F6BC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACF815EA28A23FE6002AE858 /* EarthquakesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AC1468FC28A9CE830064F6BC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ACF815FF28A246B8002AE858 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC1468FD28A9CEA90064F6BC /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				AC1468FE28A9CEC10064F6BC /* Coordinator.swift */,
+				AC14690028A9CF090064F6BC /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		AC792FD728A4C5370027A05C /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +113,7 @@
 				AC1468F128A864890064F6BC /* TableViewDataSource.swift */,
 				AC792FDB28A4C8E60027A05C /* Date+Extension.swift */,
 				AC1468F328A866D90064F6BC /* UITableViewCell+Extension.swift */,
+				AC14690228A9D0840064F6BC /* UIViewController+Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -99,18 +137,18 @@
 		ACF815E528A23FE6002AE858 /* Earthquakes */ = {
 			isa = PBXGroup;
 			children = (
+				AC1468FD28A9CEA90064F6BC /* Coordinators */,
+				AC1468FC28A9CE830064F6BC /* Services */,
+				AC1468FB28A9CE780064F6BC /* ViewControllers */,
+				AC1468FA28A9CE6E0064F6BC /* ViewModels */,
 				AC1468F528A8675C0064F6BC /* TableViewCells */,
 				AC792FDA28A4C8CF0027A05C /* Utilities */,
 				AC792FD728A4C5370027A05C /* Models */,
 				ACF815E628A23FE6002AE858 /* AppDelegate.swift */,
-				ACF815E828A23FE6002AE858 /* SceneDelegate.swift */,
-				ACF815EA28A23FE6002AE858 /* EarthquakesViewController.swift */,
 				ACF815EC28A23FE6002AE858 /* Main.storyboard */,
 				ACF815EF28A23FE7002AE858 /* Assets.xcassets */,
 				ACF815F128A23FE7002AE858 /* LaunchScreen.storyboard */,
 				ACF815F428A23FE7002AE858 /* Info.plist */,
-				ACF815FF28A246B8002AE858 /* APIService.swift */,
-				AC1468EF28A85FAC0064F6BC /* FeaturesViewModel.swift */,
 			);
 			path = Earthquakes;
 			sourceTree = "<group>";
@@ -187,15 +225,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC14690128A9CF090064F6BC /* AppCoordinator.swift in Sources */,
+				AC14690328A9D0840064F6BC /* UIViewController+Extension.swift in Sources */,
 				ACF815EB28A23FE6002AE858 /* EarthquakesViewController.swift in Sources */,
 				AC1468F028A85FAC0064F6BC /* FeaturesViewModel.swift in Sources */,
 				AC1468F728A8677B0064F6BC /* EarthquakeTableViewCell.swift in Sources */,
 				AC1468F228A864890064F6BC /* TableViewDataSource.swift in Sources */,
 				AC792FD928A4C6000027A05C /* FeatureCollection.swift in Sources */,
 				AC1468F428A866D90064F6BC /* UITableViewCell+Extension.swift in Sources */,
+				AC1468FF28A9CEC10064F6BC /* Coordinator.swift in Sources */,
 				ACF8160028A246B8002AE858 /* APIService.swift in Sources */,
 				ACF815E728A23FE6002AE858 /* AppDelegate.swift in Sources */,
-				ACF815E928A23FE6002AE858 /* SceneDelegate.swift in Sources */,
 				AC792FDC28A4C8E60027A05C /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +388,6 @@
 				INFOPLIST_FILE = Earthquakes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -377,7 +416,6 @@
 				INFOPLIST_FILE = Earthquakes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

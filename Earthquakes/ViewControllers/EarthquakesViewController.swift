@@ -32,10 +32,11 @@ final class EarthquakesViewController: UIViewController {
         EarthquakeTableViewCell.register(with: earthQuakesTableView)
         self.earthQuakesTableView.refreshControl = UIRefreshControl()
         self.earthQuakesTableView.refreshControl?.beginRefreshing()
-        self.earthQuakesTableView.refreshControl?.addTarget(self, action: #selector(refershData), for: .valueChanged)
+        self.earthQuakesTableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
     }
     
-    @objc private func refershData() {
+    @objc private func refreshData() {
         self.earthQuakesTableView.refreshControl?.beginRefreshing()
         self.viewModel.getEarthQuakeData()
     }

@@ -19,19 +19,21 @@ final class EarthquakesViewController: UIViewController {
     // MARK: -
     // MARK: Properties
     
-    fileprivate var viewModel: FeatureViewModel!
+    var viewModel: EarthquakesViewModel!
     
     
+    // MARK: -
+    // MARK: View Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.viewModel = FeatureViewModel()
         self.earthQuakesTableView.delegate = viewModel
         self.viewModel.delegate            = self
         EarthquakeTableViewCell.register(with: earthQuakesTableView)
         self.earthQuakesTableView.refreshControl = UIRefreshControl()
         self.earthQuakesTableView.refreshControl?.beginRefreshing()
+        self.viewModel.start()
         self.earthQuakesTableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
     }
@@ -42,7 +44,7 @@ final class EarthquakesViewController: UIViewController {
     }
 }
 
-extension EarthquakesViewController: FeatureViewModelDelegate {
+extension EarthquakesViewController: EarthquakesViewDelegate {
     func reloadUI() {
         self.earthQuakesTableView.dataSource = self.viewModel.dataSource
         self.earthQuakesTableView.reloadData()

@@ -13,7 +13,7 @@ class AppCoordinator: Coordinator {
     let window: UIWindow?
     
     lazy var rootViewController: UINavigationController = {
-        return UINavigationController(rootViewController: EarthquakesViewController.instantiateFromStoryboard())
+        return UINavigationController()
     }()
 
     // MARK: - Coordinator
@@ -25,13 +25,19 @@ class AppCoordinator: Coordinator {
         guard let window = window else {
             return
         }
-
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
+        goToHome()
     }
 
     override func finish() {
 
+    }
+    
+    func goToHome() {
+        let homeCoordinator = HomeCoordinator(rootViewController: rootViewController)
+        self.addChildCoordinator(homeCoordinator)
+        homeCoordinator.start()
     }
 
 }

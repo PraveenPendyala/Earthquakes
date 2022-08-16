@@ -1,5 +1,5 @@
 //
-//  APIService.swift
+//  EarthquakeApiService.swift
 //  Earthquakes
 //
 //  Created by Praveen on 8/9/22.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class APIService: NSObject {
+class EarthquakeApiService: NSObject {
     
     func getEarthQuakeData<T:Decodable>(type: T.Type, _ from: Date = Date().date(byAddingDays: -30), _ to: Date = Date()) -> AnyPublisher<T, Error> {
         

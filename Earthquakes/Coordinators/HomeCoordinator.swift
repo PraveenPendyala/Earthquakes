@@ -14,7 +14,7 @@ class HomeCoordinator: Coordinator {
     let rootViewController: UINavigationController
     
     var earthQuakesViewModel: EarthquakesViewModel {
-        let viewModel = EarthquakesViewModel(serive: APIService())
+        let viewModel = EarthquakesViewModel(serive: EarthquakeApiService())
         viewModel.coordinatorDelegate = self
         return viewModel
     }

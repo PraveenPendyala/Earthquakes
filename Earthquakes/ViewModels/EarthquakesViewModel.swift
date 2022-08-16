@@ -20,7 +20,7 @@ protocol EarthquakesViewModelCoordinatorDelegate: NSObjectProtocol {
 
 class EarthquakesViewModel: NSObject {
     
-    private var apiService          : APIService!
+    private var apiService          : EarthquakeApiService!
     private var events              = [EarthquakeViewData]()
     weak var delegate               : EarthquakesViewDelegate?
     weak var coordinatorDelegate    : EarthquakesViewModelCoordinatorDelegate?
@@ -28,8 +28,8 @@ class EarthquakesViewModel: NSObject {
     private var publisher           : AnyCancellable?
     
     
-    init(serive: APIService) {
-        self.apiService = APIService()
+    init(serive: EarthquakeApiService) {
+        self.apiService = EarthquakeApiService()
     }
     
     func start() {

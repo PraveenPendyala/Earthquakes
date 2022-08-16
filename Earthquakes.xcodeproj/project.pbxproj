@@ -19,12 +19,13 @@
 		AC792FDC28A4C8E60027A05C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC792FDB28A4C8E60027A05C /* Date+Extension.swift */; };
 		ACA9426628AB744600834F96 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9426528AB744600834F96 /* HomeCoordinator.swift */; };
 		ACA9426828AB7E6200834F96 /* EarthquakeViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9426728AB7E6200834F96 /* EarthquakeViewData.swift */; };
+		ACA9426A28AB83F300834F96 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9426928AB83F300834F96 /* ApiClient.swift */; };
 		ACF815E728A23FE6002AE858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815E628A23FE6002AE858 /* AppDelegate.swift */; };
 		ACF815EB28A23FE6002AE858 /* EarthquakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815EA28A23FE6002AE858 /* EarthquakesViewController.swift */; };
 		ACF815EE28A23FE6002AE858 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF815EC28A23FE6002AE858 /* Main.storyboard */; };
 		ACF815F028A23FE7002AE858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF815EF28A23FE7002AE858 /* Assets.xcassets */; };
 		ACF815F328A23FE7002AE858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF815F128A23FE7002AE858 /* LaunchScreen.storyboard */; };
-		ACF8160028A246B8002AE858 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815FF28A246B8002AE858 /* APIService.swift */; };
+		ACF8160028A246B8002AE858 /* EarthquakeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF815FF28A246B8002AE858 /* EarthquakeApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AC792FDB28A4C8E60027A05C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ACA9426528AB744600834F96 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		ACA9426728AB7E6200834F96 /* EarthquakeViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeViewData.swift; sourceTree = "<group>"; };
+		ACA9426928AB83F300834F96 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		ACF815E328A23FE6002AE858 /* Earthquakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earthquakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF815E628A23FE6002AE858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF815EA28A23FE6002AE858 /* EarthquakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +49,7 @@
 		ACF815EF28A23FE7002AE858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF815F228A23FE7002AE858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF815F428A23FE7002AE858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACF815FF28A246B8002AE858 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		ACF815FF28A246B8002AE858 /* EarthquakeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,7 @@
 		AC1468FC28A9CE830064F6BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				ACF815FF28A246B8002AE858 /* APIService.swift */,
+				ACF815FF28A246B8002AE858 /* EarthquakeApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 				AC792FDA28A4C8CF0027A05C /* Utilities */,
 				AC792FD728A4C5370027A05C /* Models */,
 				ACF815E628A23FE6002AE858 /* AppDelegate.swift */,
+				ACA9426928AB83F300834F96 /* ApiClient.swift */,
 				ACF815EC28A23FE6002AE858 /* Main.storyboard */,
 				ACF815EF28A23FE7002AE858 /* Assets.xcassets */,
 				ACF815F128A23FE7002AE858 /* LaunchScreen.storyboard */,
@@ -242,9 +245,10 @@
 				ACA9426828AB7E6200834F96 /* EarthquakeViewData.swift in Sources */,
 				ACA9426628AB744600834F96 /* HomeCoordinator.swift in Sources */,
 				AC1468FF28A9CEC10064F6BC /* Coordinator.swift in Sources */,
-				ACF8160028A246B8002AE858 /* APIService.swift in Sources */,
+				ACF8160028A246B8002AE858 /* EarthquakeApiService.swift in Sources */,
 				ACF815E728A23FE6002AE858 /* AppDelegate.swift in Sources */,
 				AC792FDC28A4C8E60027A05C /* Date+Extension.swift in Sources */,
+				ACA9426A28AB83F300834F96 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

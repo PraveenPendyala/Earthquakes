@@ -1,5 +1,5 @@
 //
-//  FeaturesViewModel.swift
+//  EarthquakesViewModel.swift
 //  Earthquakes
 //
 //  Created by Praveen on 8/13/22.
@@ -21,10 +21,10 @@ protocol EarthquakesViewModelCoordinatorDelegate: NSObjectProtocol {
 class EarthquakesViewModel: NSObject {
     
     private var apiService          : APIService!
-    private var collection          : FeatureCollection!
+    private var events              = [EarthquakeViewData]()
     weak var delegate               : EarthquakesViewDelegate?
     weak var coordinatorDelegate    : EarthquakesViewModelCoordinatorDelegate?
-    var dataSource                  : TableViewDataSource<EarthquakeTableViewCell,Feature>!
+    var dataSource                  : TableViewDataSource<EarthquakeTableViewCell,EarthquakeViewData>!
     private var publisher           : AnyCancellable?
     
     
@@ -43,8 +43,8 @@ class EarthquakesViewModel: NSObject {
                 self?.delegate?.loadFailed()
             }
         } receiveValue: { [weak self] collection in
-            self?.collection = collection
-            self?.dataSource  = TableViewDataSource(items: collection.features, configureCell: { cell, earthquake in
+            self?.events = collection.features.map({ EarthquakeViewData(event: $0) })
+            self?.dataSource  = TableViewDataSource(items: self?.events ?? [], configureCell: { cell, earthquake in
                 cell.configure(earthquake)
             })
             self?.delegate?.reloadUI()
@@ -59,6 +59,6 @@ extension EarthquakesViewModel: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        coordinatorDelegate?.open(url: self.collection.features[indexPath.row].properties.url)
+        coordinatorDelegate?.open(url: self.events[indexPath.row].eventURL)
     }
 }

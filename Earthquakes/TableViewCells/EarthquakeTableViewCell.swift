@@ -14,12 +14,12 @@ final class EarthquakeTableViewCell: UITableViewCell {
     // MARK: -
     // MARK: IBOutlets
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var titleLabel       : UILabel!
+    @IBOutlet weak var subTitleLabel    : UILabel!
     
-    func configure(_ event: Feature) {
-        self.titleLabel.text = event.properties.title
-        self.subTitleLabel.text = Date.init(timeIntervalSince1970: event.properties.time/1000).string(DateFormats.eventDate)
+    func configure(_ event: EarthquakeViewData) {
+        self.titleLabel.text    =  event.title
+        self.subTitleLabel.text =  event.eventTime
     }
     
 }

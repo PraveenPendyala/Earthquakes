@@ -10,17 +10,20 @@ import UIKit
 class HomeCoordinator: Coordinator {
     
     // MARK: - Properties
-  
-    let rootViewController: UINavigationController
+    
+    let apiClient           : ApiClient
+    let rootViewController  : UINavigationController
     
     var earthQuakesViewModel: EarthquakesViewModel {
-        let viewModel = EarthquakesViewModel(serive: EarthquakeApiService())
+        let earthquakeService   = EarthquakeApiService(apiClient: apiClient)
+        let viewModel = EarthquakesViewModel(serive: earthquakeService)
         viewModel.coordinatorDelegate = self
         return viewModel
     }
     
-    init(rootViewController: UINavigationController) {
+    init(rootViewController: UINavigationController, apiClient: ApiClient) {
         self.rootViewController = rootViewController
+        self.apiClient          = apiClient
     }
     
     override func start() {

@@ -15,6 +15,8 @@ class AppCoordinator: Coordinator {
     lazy var rootViewController: UINavigationController = {
         return UINavigationController()
     }()
+    
+    let apiClient = ApiClient()
 
     // MARK: - Coordinator
     init(window: UIWindow?) {
@@ -35,7 +37,7 @@ class AppCoordinator: Coordinator {
     }
     
     func goToHome() {
-        let homeCoordinator = HomeCoordinator(rootViewController: rootViewController)
+        let homeCoordinator = HomeCoordinator(rootViewController: rootViewController, apiClient: apiClient)
         self.addChildCoordinator(homeCoordinator)
         homeCoordinator.start()
     }

@@ -29,7 +29,7 @@ class EarthquakesViewModel: NSObject {
     
     
     init(serive: EarthquakeApiService) {
-        self.apiService = EarthquakeApiService()
+        self.apiService = serive
     }
     
     func start() {
